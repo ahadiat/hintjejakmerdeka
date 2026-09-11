@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy: #071b3a;
+  --blue: #0b3d91;
+  --red: #d71920;
+  --gold: #f5c542;
+  --white: #ffffff;
+  --text: #172033;
+  --muted: #697386;
+  --card: rgba(255, 255, 255, 0.96);
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(245,197,66,.18), transparent 25%),
+    radial-gradient(circle at 90% 15%, rgba(215,25,32,.15), transparent 25%),
+    linear-gradient(135deg, #06152f, #0a326c 55%, #06152f);
+  overflow-x: hidden;
+}
+
+.flag-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  right: -160px;
+  bottom: -180px;
+  background: rgba(215, 25, 32, .12);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 38px 0 25px;
+}
+
+.hero {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.jalur {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  font-size: .78rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 7vw, 4.6rem);
+  line-height: .95;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  color: rgba(255,255,255,.78);
+  font-size: 1rem;
+}
+
+.notice {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #fff8e1, #fff);
+  border-left: 6px solid var(--gold);
+  border-radius: 18px;
+  padding: 19px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 14px 35px rgba(0,0,0,.18);
+}
+
+.notice-icon {
+  font-size: 1.65rem;
+}
+
+.notice h2 {
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+}
+
+.notice p {
+  line-height: 1.55;
+  font-size: .93rem;
+  color: #424b5e;
+}
+
+.checkpoint-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.checkpoint {
+  background: var(--card);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0,0,0,.2);
+  border: 1px solid rgba(255,255,255,.6);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.checkpoint:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 19px 40px rgba(0,0,0,.27);
+}
+
+.cp-top {
+  padding: 17px 19px;
+  color: white;
+  background: linear-gradient(135deg, var(--blue), var(--navy));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cp-number {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.cp-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.cp-body {
+  padding: 19px;
+}
+
+.location {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: .9rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.location strong {
+  color: var(--text);
+}
+
+.hint {
+  background: #f5f7fb;
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 15px;
+  border: 1px solid #e5e9f1;
+}
+
+.hint-label,
+.code-label {
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  margin-bottom: 9px;
+}
+
+.hint p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.code-box {
+  border-radius: 15px;
+  padding: 15px 16px;
+  background: linear-gradient(135deg, #fff2f2, #fff8f8);
+  border: 1px dashed #e2a0a3;
+}
+
+.code-label {
+  color: var(--red);
+}
+
+.code {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #a30f15;
+  word-break: break-word;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255,255,255,.5);
+  font-size: .72rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 28px;
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: min(94%, 560px);
+    padding-top: 25px;
+  }
+
+  .checkpoint-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notice {
+    padding: 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.65rem;
+  }
+}
